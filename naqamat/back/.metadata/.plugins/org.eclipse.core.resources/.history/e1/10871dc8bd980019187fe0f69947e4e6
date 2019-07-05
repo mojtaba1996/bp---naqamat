@@ -1,0 +1,9 @@
+package requestEntities;
+
+public class SignupResponse {
+	Long id;
+	String firstname;
+	String lastname;
+	String username;
+	String role;
+}

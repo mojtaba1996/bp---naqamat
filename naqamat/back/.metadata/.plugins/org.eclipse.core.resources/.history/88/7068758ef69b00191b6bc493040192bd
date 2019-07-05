@@ -1,0 +1,5 @@
+package requestEntities;
+
+public class AddQiraatRequest {
+
+}

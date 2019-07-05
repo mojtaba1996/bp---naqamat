@@ -1,0 +1,245 @@
+!SESSION 2019-06-24 11:48:38.199 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-06-24 11:48:54.786
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-06-24 12:15:23.473 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-06-24 12:15:41.602
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-06-26 20:02:54.703 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-06-26 20:04:08.399
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2019-06-27 12:55:12.614
+!MESSAGE Full project indexing required:
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\charsets.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\access-bridge-64.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\cldrdata.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\dnsns.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\jaccess.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\jfxrt.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\localedata.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\nashorn.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunec.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunjce_provider.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunmscapi.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunpkcs11.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\zipfs.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\jce.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfr.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\jsse.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\resources.jar
+  [+] C:\Program Files\Java\jdk1.8.0_181\jre\lib\rt.jar
+  [+] C:\Users\mojtaba\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar
+  [+] C:\Users\mojtaba\.m2\repository\ch\qos\logback\logback-classic\1.1.11\logback-classic-1.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\ch\qos\logback\logback-core\1.1.11\logback-core-1.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\fasterxml\classmate\1.3.1\classmate-1.3.1.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.3.0\jackson-annotations-2.3.0.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.3.3\jackson-core-2.3.3.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.3.3\jackson-databind-2.3.3.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\fasterxml\jackson\jaxrs\jackson-jaxrs-base\2.3.3\jackson-jaxrs-base-2.3.3.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\fasterxml\jackson\jaxrs\jackson-jaxrs-json-provider\2.3.3\jackson-jaxrs-json-provider-2.3.3.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.3.3\jackson-module-jaxb-annotations-2.3.3.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\h2database\h2\1.3.173\h2-1.3.173.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\sun\xml\bind\jaxb-core\2.2.11\jaxb-core-2.2.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\com\sun\xml\bind\jaxb-impl\2.2.11\jaxb-impl-2.2.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar
+  [+] C:\Users\mojtaba\.m2\repository\javax\annotation\javax.annotation-api\1.2\javax.annotation-api-1.2.jar
+  [+] C:\Users\mojtaba\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar
+  [+] C:\Users\mojtaba\.m2\repository\javax\servlet\javax.servlet-api\3.1.0\javax.servlet-api-3.1.0.jar
+  [+] C:\Users\mojtaba\.m2\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar
+  [+] C:\Users\mojtaba\.m2\repository\javax\ws\rs\javax.ws.rs-api\2.0.1\javax.ws.rs-api-2.0.1.jar
+  [+] C:\Users\mojtaba\.m2\repository\junit\junit\4.12\junit-4.12.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-core\3.1.11\cxf-core-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-bindings-soap\3.1.11\cxf-rt-bindings-soap-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-bindings-xml\3.1.11\cxf-rt-bindings-xml-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-databinding-jaxb\3.1.11\cxf-rt-databinding-jaxb-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-frontend-jaxrs\3.1.11\cxf-rt-frontend-jaxrs-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-frontend-jaxws\3.1.11\cxf-rt-frontend-jaxws-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-frontend-simple\3.1.11\cxf-rt-frontend-simple-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-rs-client\3.1.11\cxf-rt-rs-client-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-rs-service-description\3.1.11\cxf-rt-rs-service-description-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-transports-http\3.1.11\cxf-rt-transports-http-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-ws-addr\3.1.11\cxf-rt-ws-addr-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-ws-policy\3.1.11\cxf-rt-ws-policy-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\cxf\cxf-rt-wsdl\3.1.11\cxf-rt-wsdl-3.1.11.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\geronimo\specs\geronimo-jta_1.1_spec\1.1.1\geronimo-jta_1.1_spec-1.1.1.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\neethi\neethi\3.0.3\neethi-3.0.3.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\apache\ws\xmlschema\xmlschema-core\2.2.1\xmlschema-core-2.2.1.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\aspectj\aspectjweaver\1.8.10\aspectjweaver-1.8.10.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\codehaus\woodstox\stax2-api\3.1.4\stax2-api-3.1.4.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\codehaus\woodstox\woodstox-core-asl\4.4.1\woodstox-core-asl-4.4.1.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.0.1.Final\hibernate-commons-annotations-5.0.1.Final.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\hibernate\hibernate-core\5.0.12.Final\hibernate-core-5.0.12.Final.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\hibernate\hibernate-entitymanager\5.0.12.Final\hibernate-entitymanager-5.0.12.Final.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\hibernate\hibernate-validator\5.3.5.Final\hibernate-validator-5.3.5.Final.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\hibernate\javax\persistence\hibernate-jpa-2.1-api\1.0.0.Final\hibernate-jpa-2.1-api-1.0.0.Final.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\javassist\javassist\3.18.1-GA\javassist-3.18.1-GA.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\jboss\jandex\2.0.0.Final\jandex-2.0.0.Final.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\jboss\logging\jboss-logging\3.3.0.Final\jboss-logging-3.3.0.Final.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\json\json\20140107\json-20140107.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\ow2\asm\asm\5.0.4\asm-5.0.4.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.25\jcl-over-slf4j-1.7.25.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\slf4j\log4j-over-slf4j\1.7.25\log4j-over-slf4j-1.7.25.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-aop\4.3.8.RELEASE\spring-aop-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-beans\4.3.8.RELEASE\spring-beans-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-context-support\4.3.8.RELEASE\spring-context-support-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-context\4.3.8.RELEASE\spring-context-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-core\4.3.8.RELEASE\spring-core-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-expression\4.3.8.RELEASE\spring-expression-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-jdbc\4.3.8.RELEASE\spring-jdbc-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-orm\4.3.8.RELEASE\spring-orm-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-test\4.3.8.RELEASE\spring-test-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-tx\4.3.8.RELEASE\spring-tx-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\org\springframework\spring-web\4.3.8.RELEASE\spring-web-4.3.8.RELEASE.jar
+  [+] C:\Users\mojtaba\.m2\repository\wsdl4j\wsdl4j\1.6.3\wsdl4j-1.6.3.jar
+  [+] C:\Users\mojtaba\.m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar
+  [+] C:\Users\mojtaba\.m2\repository\xml-resolver\xml-resolver\1.2\xml-resolver-1.2.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+!SESSION 2019-06-28 10:35:53.789 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-06-28 10:36:07.898
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-06-29 10:29:55.726 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-06-29 10:30:41.656
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-06-30 11:42:20.536 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-06-30 11:42:34.696
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-07-01 08:58:04.445 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-07-01 08:58:58.322
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-07-02 11:27:54.529 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-07-02 11:28:09.531
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-07-03 00:07:57.188 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-07-03 00:08:42.207
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-07-03 09:11:49.877 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-07-03 09:12:46.691
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mojtaba'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.oomph.setup.core 2 0 2019-07-03 09:12:54.941
+!MESSAGE The Eclipse Git-hosted URI 'http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/org.eclipse.setup' is blocked for direct access.
+Please open a Bugzilla to add it to an official Oomph catalog.
+For initial testing, use the file system local version of the resource.
+Alternatively, run the setup archiver application as follows:
+  F:\eclipse-java-neon-1a-win32-x86_64\eclipse\eclipsec.exe -application org.eclipse.oomph.setup.core.SetupArchiver -consoleLog -noSplash -uris http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/org.eclipse.setup

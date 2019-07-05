@@ -1,0 +1,22 @@
+package ir.asta.training.contacts.services;
+
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import ir.asta.training.contacts.entities.SurahEntity;
+import ir.asta.wise.core.datamanagement.ActionResult;
+
+@Path("/surah")
+public interface SurahService {
+	
+	@GET
+	@Path("/{token}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<List<SurahEntity>> getAllSurahs(@PathParam("token") String token);
+
+}

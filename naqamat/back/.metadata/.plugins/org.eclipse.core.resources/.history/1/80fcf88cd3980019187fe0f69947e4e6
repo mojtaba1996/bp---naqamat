@@ -1,0 +1,59 @@
+package ir.asta.training.contacts.manager;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.security.SecureRandom;
+
+import ir.asta.training.contacts.dao.UserDao;
+import ir.asta.training.contacts.entities.UserrEntity;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import requestEntities.LoginResponse;
+import requestEntities.SignupRequest;
+import requestEntities.SignupResponse;
+
+@Named("authManager")
+public class AuthManager {
+	
+	
+	
+	@Inject UserDao dao;
+	
+	public ActionResult<UserrEntity> signup(UserrEntity user){
+		ActionResult<UserrEntity> answer = new ActionResult<UserrEntity>();
+		if(!dao.isNewUsername(user.getUsername())){
+			answer.setSuccess(false);
+			answer.setMessage("نام کاربری تکراری است");
+			return answer;
+		}
+		if(user.getPassword().length()<8){
+			answer.setSuccess(false);
+			answer.setMessage("رمز عبور کوتاه است");
+			return answer;
+		}
+		if(dao.save(user)){
+			answer.setData(user);
+			answer.setMessage("با موفقیت عضو شد");
+			answer.setSuccess(true);
+		}
+		return answer;
+	}
+
+	public UserrEntity login(UserrEntity user){
+		user = dao.exist(user);
+		TokenGenerator tg = new TokenGenerator();
+		ActionResult<UserEntity> newUser = new ActionResult<UserEntity>(); 
+		newUser.setData(dao.exist(user));
+		if (newUser.getData() == null){
+			newUser.setMessage("نام کاربری وجود ندارد");
+		}else if (newUser.getData().getPassword().equals(user.getPassword())){
+			newUser.setSuccess(true);
+			newUser.getData().setToken(tg.generateToken(user.getUsername()));
+			request.getSession().setAttribute("token", newUser.getData().getToken());
+			request.getSession().setAttribute("user_id", newUser.getData().getId());
+		}
+		else{
+			newUser.setMessage("رمز عبور اشتباه وارد شده است");
+		}
+		return newUser;
+	}
+}

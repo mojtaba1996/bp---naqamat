@@ -1,0 +1,124 @@
+package ir.asta.training.contacts.manager;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import ir.asta.training.contacts.dao.QariDao;
+import ir.asta.training.contacts.dao.QiraatDao;
+import ir.asta.training.contacts.dao.SurahDao;
+import ir.asta.training.contacts.dao.TuneDao;
+import ir.asta.training.contacts.dao.UserDao;
+import ir.asta.training.contacts.entities.QariEntity;
+import ir.asta.training.contacts.entities.QiraatEntity;
+import ir.asta.training.contacts.entities.SampleEntity;
+import ir.asta.training.contacts.entities.SurahEntity;
+import ir.asta.training.contacts.entities.TuneEntity;
+
+@Named("adminManager")
+public class AdminManager {
+	
+	@Inject SurahDao surahDao;
+	@Inject QariDao qariDao;
+	@Inject QiraatDao qiraatDao;
+	@Inject TuneDao tuneDao;
+	
+	public List<SurahEntity> getAllSurahs(){
+		return surahDao.getAllSurahs();
+	}
+	
+	@Transactional
+	public boolean addNewSurah(SurahEntity surah){
+		if(!surahDao.isNewSurahName(surah.getName())){return false;}
+		if(!surahDao.isNewSurahNumber(surah.getNumber())){return false;}
+		surahDao.addSurah(surah);
+		return true;
+	}
+	
+	public List<QariEntity> getAllQaries(){
+		List<QariEntity> qaries = qariDao.getAllQaries();
+		int count = qaries.size();
+		for(int i=0; i<count; i++){
+			QariEntity qari = qaries.remove(0);
+			QariEntity newQari = new QariEntity();
+			newQari.setId(qari.getId());
+			newQari.setName(qari.getName());
+			newQari.setPic(qari.getPic());
+			qaries.add(newQari);
+		}
+		return qaries;
+	}
+	
+	@Transactional
+	public boolean addNewQari(QariEntity qari){
+		// TODO: unique properties
+		qariDao.addQari(qari);
+		return true;
+	}
+	
+	public List<QiraatEntity> getAllQiraats(){
+		List<QiraatEntity> qiraats = qiraatDao.getAllQiraats();
+		int count = qiraats.size();
+		for(int i=0; i<count; i++){
+			QiraatEntity qiraat = qiraats.remove(0);
+			QiraatEntity newQiraat = new QiraatEntity();
+			newQiraat.setId(qiraat.getId());
+			newQiraat.setFroms(qiraat.getFroms());
+			newQiraat.setLikes(qiraat.getLikes());
+			newQiraat.setLink(qiraat.getLink());
+			newQiraat.setSurahs(qiraat.getSurahs());
+			newQiraat.setToes(qiraat.getToes());
+			QariEntity qari = new QariEntity();
+			qari.setId(qiraat.getQari().getId());
+			qari.setName(qiraat.getQari().getName());
+			qari.setPic(qiraat.getQari().getPic());
+			newQiraat.setQari(qari);
+			qiraats.add(newQiraat);
+		}
+		return qiraats;
+	}
+	
+	@Transactional
+	public boolean addNewQiraat(QiraatEntity qiraat){
+		// TODO: unique properties
+		qiraatDao.addQiraat(qiraat);
+		return true;
+	}
+	
+	@Transactional
+	public void deleteQiraatById(long qiraat_id){
+		qiraatDao.deleteQiraatById(qiraat_id);
+	}
+	
+	public List<TuneEntity> getAllTunes(){
+		List<TuneEntity> tunes = tuneDao.getAllTunes();
+		int count = tunes.size();
+		for(int i=0; i<count; i++){
+			TuneEntity tune = tunes.remove(0);
+			TuneEntity newTune = new TuneEntity();
+			newTune.setId(tune.getId());
+			newTune.setName(tune.getName());
+			newTune.setGamme(tune.getGamme());
+			Set<SampleEntity> samples = tune.getSamples();
+			for( SampleEntity sample : samples){
+				SampleEntity newSample = new SampleEntity();
+				newSample.setId(sample.getId());
+				newSample.setLikesCount(sample.getLikesCount());
+				newSample.setQiraat(sample.getQiraat());
+				newSample.setStartTime(sample.getStartTime());
+				newSample.setEndTime(sample.getEndTime());
+				samples.remove(sample);
+				samples.add(newSample);
+			}
+			newTune.setSamples(samples);
+			tunes.add(newTune)
+		}
+		return tunes;
+	}
+
+}

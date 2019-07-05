@@ -1,0 +1,11 @@
+package ir.asta.training.contacts.manager;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@Named("userManager")
+public class UserManager {
+	
+	@Inject UserDao dao;
+
+}

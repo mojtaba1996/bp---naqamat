@@ -1,0 +1,42 @@
+package ir.asta.training.contacts.services.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Context;
+
+import ir.asta.training.contacts.entities.UserrEntity;
+import ir.asta.training.contacts.manager.UserManager;
+import ir.asta.training.contacts.services.UserService;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import utils.Settings;
+
+@Named("userService")
+public class UserServiceImpl implements UserService {
+	
+	@Context HttpServletRequest request;
+	@Context HttpServletResponse response;
+	@Inject UserManager manager;
+	
+	Settings settings = new Settings();
+
+	@Override
+	public ActionResult<Boolean> isNewUsername(String username) {
+		return manager.isNewUsername(username);
+	}
+
+	@Override
+	public ActionResult<List<UserrEntity>> showAllUsers(String password) {
+		ActionResult<List<UserrEntity>> answer = new ActionResult<List<UserrEntity>>();
+		if(!password.equals(settings.PASSWORD)){
+			answer.setSuccess(false);
+			answer.setMessage(settings.ADMIN_PASSWORD_DOES_NOT_MATCH);
+		}
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

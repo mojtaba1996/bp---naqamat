@@ -1,0 +1,13 @@
+package ir.asta.training.contacts.manager;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@Named("surahManager")
+public class SurahManager {
+	
+	@Inject SurahDao dao;
+	
+	
+	
+}

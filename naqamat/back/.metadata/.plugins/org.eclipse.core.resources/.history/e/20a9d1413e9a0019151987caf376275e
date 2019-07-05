@@ -1,0 +1,31 @@
+package ir.asta.training.contacts.services.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Context;
+
+import ir.asta.training.contacts.entities.SurahEntity;
+import ir.asta.training.contacts.manager.SurahManager;
+import ir.asta.training.contacts.services.SurahService;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import utils.Functions;
+
+@Named("surahService")
+public class SurahServiceImpl implements SurahService {
+
+	@Context HttpServletRequest request;
+	@Context HttpServletResponse response;
+	@Inject SurahManager manager;
+	
+	Functions functions = new Functions();
+
+	@Override
+	public ActionResult<List<SurahEntity>> getAllSurahs(String token) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

@@ -1,0 +1,28 @@
+package requestEntities;
+
+public class AddQariRequest {
+	
+	String qari_name;
+	String pic;
+	String token;
+	public String getQari_name() {
+		return qari_name;
+	}
+	public void setQari_name(String qari_name) {
+		this.qari_name = qari_name;
+	}
+	public String getPic() {
+		return pic;
+	}
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
+
+}

@@ -1,0 +1,12 @@
+package ir.asta.training.contacts.dao;
+
+import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+@Named("userDao")
+public class UserDao {
+	
+	@PersistenceContext private EntityManager entityManager;
+
+}

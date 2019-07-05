@@ -1,0 +1,75 @@
+package ir.asta.training.contacts.services.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Context;
+
+import ir.asta.training.contacts.entities.SurahEntity;
+import ir.asta.training.contacts.manager.AdminManager;
+import ir.asta.training.contacts.manager.AuthManager;
+import ir.asta.training.contacts.services.AdminService;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import requestEntities.AddSurahRequest;
+import utils.Functions;
+import utils.Settings;
+import utils.Roles;
+
+@Named("adminService")
+public class AdminServiceImpl implements AdminService {
+	
+	@Context HttpServletRequest request;
+	@Context HttpServletResponse response;
+	@Inject AdminManager manager;
+	
+	Functions functions = new Functions();
+	Settings settings = new Settings();
+	Roles roles = new Roles();
+
+	@Override
+	public ActionResult<List<SurahEntity>> getAllSurahs(String token) {
+		ActionResult<List<SurahEntity>> answer = new ActionResult<List<SurahEntity>>();
+		if(functions.isNull(request.getSession().getAttribute("token"))){
+			answer.setSuccess(false);
+			answer.setMessage(settings.LOGIN_FIRST);
+		}else if(functions.ckeckToken(request.getSession().getAttribute("token"), token)){
+			if(functions.isAdmin(request.getSession().getAttribute("role"))){
+				answer.setData(manager.getAllSurahs());
+				answer.setSuccess(true);
+			}
+			else{
+				answer.setSuccess(false);
+				answer.setMessage(settings.ACCESS_DENIED);
+			}
+		}else{
+			answer.setSuccess(false);
+			answer.setMessage(settings.TOKEN_DOES_NOT_MATCH);
+		}
+		return answer;
+	}
+
+	@Override
+	public ActionResult<Boolean> addSurah(AddSurahRequest asReq) {
+		ActionResult<Boolean> answer = new ActionResult<Boolean>();
+		if (functions.isNull(request.getSession().getAttribute("token"))){
+			answer.setSuccess(false);
+			answer.setMessage(settings.LOGIN_FIRST);
+		}else if(functions.ckeckToken(request.getSession().getAttribute("token"), asReq.getToken())){
+			if(functions.isAdmin(request.getSession().getAttribute("role"))){
+				answer.setData(manager.addNewSurah(asReq.getSurah()));
+				answer.setSuccess(true);
+			}else{
+				answer.setSuccess(false);
+				answer.setMessage(settings.ACCESS_DENIED);
+			}
+		}else{
+			answer.setSuccess(false);
+			answer.setMessage(settings.TOKEN_DOES_NOT_MATCH);
+		}
+		return answer;
+	}
+
+}

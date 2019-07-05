@@ -1,0 +1,11 @@
+package utils;
+
+public class Functions {
+	public boolean isNull(Object o){
+		return false;
+	}
+	public boolean ckeckToken(Object o, String b){
+		return true;
+	}
+
+}

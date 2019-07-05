@@ -1,0 +1,59 @@
+package ir.asta.training.contacts.services.impl;
+
+import java.security.SecureRandom;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Context;
+
+import ir.asta.training.contacts.entities.UserrEntity;
+import ir.asta.training.contacts.manager.AuthManager;
+import ir.asta.training.contacts.services.AuthService;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import requestEntities.SignupRequest;
+import requestEntities.SignupResponse;
+
+@Named("authService")
+public class AuthServiceImpl implements AuthService {
+	
+	protected static SecureRandom random = new SecureRandom();
+	
+	@Context HttpServletRequest request;
+	@Context HttpServletResponse response;
+	
+	@Inject AuthManager manager;
+
+	@Override
+	public ActionResult<SignupResponse> signup(SignupRequest signupRequest) {
+		UserrEntity user = new UserrEntity();
+		user.setFirstname(signupRequest.getFirstname());
+		user.setLastname(signupRequest.getLastname());
+		user.setPassword(signupRequest.getPassword());
+		user.setRole(signupRequest.getRole());
+		user.setUsername(signupRequest.getUsername());
+		ActionResult<UserrEntity> newUser = manager.signup(user);
+		ActionResult<SignupResponse> answer = new ActionResult<SignupResponse>();
+		answer.setSuccess(newUser.isSuccess());
+		answer.setMessage(newUser.getMessage());
+		if(newUser.isSuccess()){
+			SignupResponse sRes = new SignupResponse();
+			sRes.setFirstname(newUser.getData().getFirstname());
+			sRes.setId(newUser.getData().getId());
+			sRes.setLastname(newUser.getData().getLastname());
+			sRes.setRole(newUser.getData().getRole());
+			sRes.setUsername(newUser.getData().getUsername());
+			sRes.setToken(generateToken(sRes.getUsername()));
+			answer.setData(sRes);
+		}
+		return answer;
+	}
+	
+	public synchronized String generateToken( String username ) {
+        long longToken = Math.abs( random.nextLong() );
+        String random = Long.toString( longToken, 16 );
+        return ( username + ":" + random );
+	}
+
+}

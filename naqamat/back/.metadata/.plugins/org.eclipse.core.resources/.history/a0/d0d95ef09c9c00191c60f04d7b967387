@@ -1,0 +1,96 @@
+package ir.asta.training.contacts.services;
+
+import java.io.File;
+import java.util.List;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.apache.cxf.jaxrs.ext.multipart.Multipart;
+
+import ir.asta.training.contacts.entities.QariEntity;
+import ir.asta.training.contacts.entities.QiraatEntity;
+import ir.asta.training.contacts.entities.SampleEntity;
+import ir.asta.training.contacts.entities.SurahEntity;
+import ir.asta.training.contacts.entities.TuneEntity;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import requestEntities.AddQariRequest;
+import requestEntities.AddQiraatRequest;
+import requestEntities.AddSampleRequest;
+import requestEntities.AddSurahRequest;
+import requestEntities.AddTuneRequest;
+
+@Path("/admin")
+public interface AdminService {
+	
+	@GET
+	@Path("/surah/{token}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<List<SurahEntity>> getAllSurahs(@PathParam("token") String token);
+	
+	@POST
+	@Path("/surah")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<Boolean> addSurah(AddSurahRequest asReq);
+	
+	@GET
+	@Path("/qari/{token}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<List<QariEntity>> getAllQaries(@PathParam("token") String token);
+	
+	@POST
+	@Path("/qari")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<Boolean> addQari(AddQariRequest addQariRequest);
+	
+	@GET
+	@Path("/qiraat/{token}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<List<QiraatEntity>> getAllQiraats(@PathParam("token") String token);
+	
+	@POST
+	@Path("/qiraat")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<Boolean> addQiraat(AddQiraatRequest addQiraatRequest);
+	
+	@DELETE
+	@Path("/qiraat/{id}")
+	public void deleteQiraat(@PathParam("id") String qiraat_id);
+	
+	@GET
+	@Path("/tune/{token}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<List<TuneEntity>> getAllTunes(@PathParam("token") String token);
+	
+	@POST
+	@Path("/tune")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<Boolean> addTune(AddTuneRequest addTuneRequest);
+	
+	@GET
+	@Path("/sample/{token}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<List<SampleEntity>> getAllSamples(@PathParam("token") String token);
+	
+	@POST
+	@Path("/sample")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<Boolean> addSample(AddSampleRequest addSampleRequest);
+	
+	@DELETE
+	@Path("/sample/{id}")
+	public void deleteSample(@PathParam("id") String sample_id);
+
+}

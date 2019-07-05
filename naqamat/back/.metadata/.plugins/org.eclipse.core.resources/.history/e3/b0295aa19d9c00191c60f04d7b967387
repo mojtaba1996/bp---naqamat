@@ -1,0 +1,18 @@
+package ir.asta.training.contacts.services.impl;
+
+import javax.inject.Named;
+
+import ir.asta.training.contacts.entities.QiraatEntity;
+import ir.asta.training.contacts.services.UserLevelService;
+import ir.asta.wise.core.datamanagement.ActionResult;
+
+@Named("userLevelService")
+public class UserLevelServiceImpl implements UserLevelService {
+
+	@Override
+	public ActionResult<QiraatEntity> getQiraatById(String token, String qiraat_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

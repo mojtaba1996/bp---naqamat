@@ -1,0 +1,14 @@
+package ir.asta.training.contacts.services.impl;
+
+import ir.asta.training.contacts.services.UserService;
+import ir.asta.wise.core.datamanagement.ActionResult;
+
+public class UserServiceImpl implements UserService {
+
+	@Override
+	public ActionResult<Boolean> isNewUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

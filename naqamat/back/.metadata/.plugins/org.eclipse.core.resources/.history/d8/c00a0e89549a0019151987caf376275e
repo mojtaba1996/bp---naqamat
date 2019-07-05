@@ -1,0 +1,38 @@
+package ir.asta.training.contacts.dao;
+
+import java.util.List;
+
+import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import ir.asta.training.contacts.entities.SurahEntity;
+import ir.asta.training.contacts.entities.UserrEntity;
+
+@Named("surahDao")
+public class SurahDao {
+	
+	@PersistenceContext private EntityManager em;
+
+	public List<SurahEntity> getAllSurahs() {
+		Query q = em.createQuery("SELECT s FROM SurahEntity s");
+		List<SurahEntity> result = q.getResultList();
+		return result;
+	}
+	
+	public boolean isNewSurahName(String name){
+		Query q = em.createQuery("SELECT s FROM SurahEntity s WHERE s.name = :name");
+		q.setParameter("name", name)
+		List<SurahEntity> result = q.getResultList();
+		return result.size() == 0;
+	}
+	
+	public boolean isNewSurahName(int number){
+		Query q = em.createQuery("SELECT s FROM SurahEntity s WHERE s.number = :number");
+		q.setParameter("number", number)
+		List<SurahEntity> result = q.getResultList();
+		return result.size() == 0;
+	}
+
+}

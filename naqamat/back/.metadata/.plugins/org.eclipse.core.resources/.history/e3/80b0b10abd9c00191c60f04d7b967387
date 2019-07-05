@@ -1,0 +1,25 @@
+package ir.asta.training.contacts.services;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import ir.asta.training.contacts.entities.QiraatEntity;
+import ir.asta.wise.core.datamanagement.ActionResult;
+
+@Path("/user")
+public interface UserLevelService {
+	
+	@GET
+	@Path("/qiraat/{token}/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<QiraatEntity> getQiraatById(@PathParam("token") String token, @PathParam("id") String qiraat_id);
+	
+	@GET
+	@Path("/tune/bygamme/{token}/{gamme}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActionResult<List<TuneEntity>> getTunesByGamme(@PathParam("token") String token, @PathParam("gamme") String gamme);
+
+}

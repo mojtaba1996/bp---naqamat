@@ -1,0 +1,45 @@
+package ir.asta.training.contacts.services.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Context;
+
+import ir.asta.training.contacts.entities.QiraatEntity;
+import ir.asta.training.contacts.entities.TuneEntity;
+import ir.asta.training.contacts.manager.UserLevelManager;
+import ir.asta.training.contacts.services.UserLevelService;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import utils.Functions;
+import utils.Roles;
+import utils.Settings;
+
+@Named("userLevelService")
+public class UserLevelServiceImpl implements UserLevelService {
+
+	@Context HttpServletRequest request;
+	@Context HttpServletResponse response;
+	@Inject UserLevelManager manager;
+	
+	Functions functions = new Functions();
+	Settings settings = new Settings();
+	Roles roles = new Roles();
+	
+	@Override
+	public ActionResult<QiraatEntity> getQiraatById(String token, String qiraat_id) {
+		ActionResult<QiraatEntity> answer = new ActionResult<QiraatEntity>();
+		answer.setData(manager.getQiraatById(Long.parseLong(qiraat_id)));
+		answer.setSuccess(true);
+		return answer;
+	}
+
+	@Override
+	public ActionResult<List<TuneEntity>> getTunesByGamme(String token, String gamme) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

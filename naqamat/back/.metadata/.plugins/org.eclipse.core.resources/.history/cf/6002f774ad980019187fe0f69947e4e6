@@ -1,0 +1,104 @@
+package ir.asta.training.contacts.entities;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="WISE_QIRAAT")
+public class QiraatEntity {
+	
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	Long id;
+	
+	@ManyToOne()
+	@JoinColumn(name = "qari")
+	QariEntity qari;
+
+	@Basic()
+	@Column(name = "link")
+	String link;
+	
+	@ManyToMany
+	@JoinTable(
+				name = "QIRAAT_SURAH",
+				joinColumns = @JoinColumn(name = "QIRAAT_ID", referencedColumnName = "id"),
+				inverseJoinColumns = @JoinColumn(name = "SURAH_ID", referencedColumnName = "id"))
+	List<SurahEntity> Surahs;
+	
+	@Basic
+	@Column(name = "froms")
+	ArrayList<Integer> froms;
+	
+	@Basic
+	@Column(name = "toes")
+	ArrayList<Integer> toes;
+	
+	@Basic
+	@Column(name = "likes")
+	int likes;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public QariEntity getQari() {
+		return qari;
+	}
+
+	public void setQari(QariEntity qari) {
+		this.qari = qari;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public List<SurahEntity> getSurahs() {
+		return Surahs;
+	}
+
+	public void addSurahs(SurahEntity surah) {
+		this.Surahs.add(surah);
+	}
+
+	public ArrayList<Integer> getFroms() {
+		return froms;
+	}
+
+	public void addFroms(int from) {
+		this.froms.add(from);
+	}
+
+	public ArrayList<Integer> getToes() {
+		return toes;
+	}
+
+	public void addTo(int to) {
+		this.toes.add(to);
+	}
+
+	
+
+}

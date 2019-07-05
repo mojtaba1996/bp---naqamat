@@ -1,0 +1,8 @@
+package ir.asta.training.contacts.manager;
+
+import javax.inject.Named;
+
+@Named("useLevelManager")
+public class UserLevelManager {
+
+}

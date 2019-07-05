@@ -1,0 +1,51 @@
+package ir.asta.training.contacts.manager;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import ir.asta.training.contacts.dao.QariDao;
+import ir.asta.training.contacts.dao.QiraatDao;
+import ir.asta.training.contacts.dao.SampleDao;
+import ir.asta.training.contacts.dao.SurahDao;
+import ir.asta.training.contacts.dao.TuneDao;
+import ir.asta.training.contacts.entities.QariEntity;
+import ir.asta.training.contacts.entities.QiraatEntity;
+import ir.asta.training.contacts.entities.TuneEntity;
+
+@Named("useLevelManager")
+public class UserLevelManager {
+	
+	@Inject SurahDao surahDao;
+	@Inject QariDao qariDao;
+	@Inject QiraatDao qiraatDao;
+	@Inject TuneDao tuneDao;
+	@Inject SampleDao sampleDao;
+	
+	@Transactional
+	public QiraatEntity getQiraatById(Long qiraat_id){
+		QiraatEntity qiraat = qiraatDao.getQiraatById(qiraat_id);
+		QiraatEntity newQiraat = new QiraatEntity();
+		QariEntity qari = qiraat.getQari();
+		QariEntity newQari = new QariEntity();
+		newQiraat.setId(qiraat.getId());
+		newQiraat.setLikes(qiraat.getLikes());
+		newQiraat.setLink(qiraat.getLink());
+		newQiraat.setSurahs(qiraat.getSurahs());
+		newQiraat.setFroms(qiraat.getFroms());
+		newQiraat.setToes(qiraat.getToes());
+		newQari.setId(qari.getId());
+		newQari.setName(qari.getName());
+		newQari.setPic(qari.getPic());
+		newQiraat.setQari(newQari);
+		return newQiraat;
+	}
+
+	public List<TuneEntity> getTunesByGamme(String gamme){
+		List<TuneEntity> tunes = tuneDao.getTunesByGamme(gamme);
+	}
+	
+}

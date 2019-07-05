@@ -1,0 +1,14 @@
+package ir.asta.training.contacts.manager;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import ir.asta.training.contacts.dao.SurahDao;
+import ir.asta.training.contacts.dao.UserDao;
+
+@Named("adminManager")
+public class AdminManager {
+	
+	@Inject SurahDao surahDao;
+
+}

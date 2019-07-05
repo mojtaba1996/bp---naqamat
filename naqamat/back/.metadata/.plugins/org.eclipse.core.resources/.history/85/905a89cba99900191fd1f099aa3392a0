@@ -1,0 +1,110 @@
+package ir.asta.training.contacts.services.impl;
+
+import java.security.SecureRandom;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Context;
+
+import ir.asta.training.contacts.entities.UserrEntity;
+import ir.asta.training.contacts.manager.AuthManager;
+import ir.asta.training.contacts.services.AuthService;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import requestEntities.LoginResponse;
+import requestEntities.SignupRequest;
+import requestEntities.SignupResponse;
+import utils.Settings;
+import utils.Functions;
+
+@Named("authService")
+public class AuthServiceImpl implements AuthService {
+	
+	protected static SecureRandom random = new SecureRandom();
+	
+	@Context HttpServletRequest request;
+	@Context HttpServletResponse response;
+	@Inject AuthManager manager;
+	
+	Functions functions = new Functions();
+
+	@Override
+	public ActionResult<SignupResponse> signup(SignupRequest signupRequest) {
+		UserrEntity user = new UserrEntity();
+		user.setFirstname(signupRequest.getFirstname());
+		user.setLastname(signupRequest.getLastname());
+		user.setPassword(signupRequest.getPassword());
+		user.setRole(signupRequest.getRole());
+		user.setUsername(signupRequest.getUsername());
+		ActionResult<UserrEntity> newUser = manager.signup(user);
+		ActionResult<SignupResponse> answer = new ActionResult<SignupResponse>();
+		answer.setSuccess(newUser.isSuccess());
+		answer.setMessage(newUser.getMessage());
+		if(newUser.isSuccess()){
+			SignupResponse sRes = new SignupResponse();
+			sRes.setFirstname(newUser.getData().getFirstname());
+			sRes.setId(newUser.getData().getId());
+			sRes.setLastname(newUser.getData().getLastname());
+			sRes.setRole(newUser.getData().getRole());
+			sRes.setUsername(newUser.getData().getUsername());
+			sRes.setToken(generateToken(sRes.getUsername()));
+			request.getSession().setAttribute("token", sRes.getToken());
+			request.getSession().setAttribute("user_id", sRes.getId());
+			answer.setData(sRes);
+		}
+		return answer;
+	}
+	
+	public synchronized String generateToken( String username ) {
+        long longToken = Math.abs( random.nextLong() );
+        String random = Long.toString( longToken, 16 );
+        return ( username + ":" + random );
+	}
+
+	@Override
+	public ActionResult<LoginResponse> login(UserrEntity user) {
+		ActionResult<LoginResponse> alr = new ActionResult<LoginResponse>();
+		UserrEntity newUser = manager.login(user);
+		if (newUser == null){
+			alr.setMessage("نام کاربری وجود ندارد");
+		}else if (newUser.getPassword().equals(user.getPassword())){
+			String token = generateToken(newUser.getUsername());
+			alr.setSuccess(true);
+			LoginResponse lr = new LoginResponse();
+			lr.setId(newUser.getId());
+			lr.setFirstname(newUser.getFirstname());
+			lr.setLastname(newUser.getLastname());
+			lr.setRole(newUser.getRole());
+			lr.setToken(token);
+			lr.setUsername(newUser.getUsername());
+			request.getSession().setAttribute("token", token);
+			request.getSession().setAttribute("user_id", newUser.getId());
+		}
+		else{
+			alr.setMessage("رمز عبور اشتباه وارد شده است");
+		}
+		return alr;
+	}
+
+	@Override
+	public ActionResult<Boolean> logout(String token) {
+		ActionResult<Boolean> answer = new ActionResult<Boolean>();
+		if (request.getSession().getAttribute("token") == null){
+			answer.setSuccess(true);
+			answer.setMessage("شما در حال حاضر خارج شده هستید");
+			answer.setData(true);
+		}else if (functions.ckeckToken(request.getSession().getAttribute("token").toString(), token)){
+			request.getSession().setAttribute("token", "");
+			request.getSession().setAttribute("user_id", "");
+			answer.setData(true);
+			answer.setSuccess(true);
+			answer.setMessage("با موفقتیت خارج شد");
+		}else{
+			answer.setSuccess(false);
+			answer.setMessage(Settings.TOKEN_DOES_NOT_MATCH);
+		}
+		return answer;
+	}
+
+}

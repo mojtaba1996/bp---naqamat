@@ -1,0 +1,30 @@
+package ir.asta.training.contacts.manager;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.security.SecureRandom;
+
+import ir.asta.training.contacts.dao.UserDao;
+import ir.asta.training.contacts.entities.UserrEntity;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import requestEntities.SignupRequest;
+import requestEntities.SignupResponse;
+
+@Named("authManager")
+public class AuthManager {
+	
+	
+	
+	@Inject UserDao dao;
+	
+	public ActionResult<SignupResponse> signup(SignupRequest signupRequest){
+		UserrEntity newUser = new UserrEntity();
+		newUser.setFirstname(signupRequest.getFirstname());
+		newUser.setLastname(signupRequest.getLastname());
+		newUser.setPassword(signupRequest.getLastname());
+		newUser.setRole(signupRequest.getRole());
+		newUser.setUsername(signupRequest.getUsername());
+		
+	}
+
+}

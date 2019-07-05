@@ -1,0 +1,30 @@
+package ir.asta.training.contacts.services;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import ir.asta.training.contacts.entities.UserrEntity;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import requestEntities.LoginResponse;
+import requestEntities.SignupRequest;
+import requestEntities.SignupResponse;
+
+@Path("/auth")
+public interface AuthService {
+
+	@POST
+	@Path("/signup")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public ActionResult<SignupResponse> signup(SignupRequest signupRequest);
+	
+	@POST
+	@Path("/login")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public ActionResult<LoginResponse> login(UserrEntity user);
+	
+}

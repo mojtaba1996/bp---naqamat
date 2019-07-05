@@ -1,0 +1,55 @@
+package ir.asta.training.contacts.manager;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import ir.asta.training.contacts.dao.QariDao;
+import ir.asta.training.contacts.dao.SurahDao;
+import ir.asta.training.contacts.dao.UserDao;
+import ir.asta.training.contacts.entities.QariEntity;
+import ir.asta.training.contacts.entities.SurahEntity;
+
+@Named("adminManager")
+public class AdminManager {
+	
+	@Inject SurahDao surahDao;
+	@Inject QariDao qariDao;
+	
+	public List<SurahEntity> getAllSurahs(){
+		return surahDao.getAllSurahs();
+	}
+	
+	@Transactional
+	public boolean addNewSurah(SurahEntity surah){
+		if(!surahDao.isNewSurahName(surah.getName())){return false;}
+		if(!surahDao.isNewSurahNumber(surah.getNumber())){return false;}
+		surahDao.addSurah(surah);
+		return true;
+	}
+	
+	public List<QariEntity> getAllQaries(){
+		List<QariEntity> qaries = qariDao.getAllQaries();
+		int count = qaries.size();
+		for(int i=0; i<count; i++){
+			QariEntity qari = qaries.remove(0);
+			QariEntity newQari = new QariEntity();
+			newQari.setId(qari.getId());
+			newQari.setName(qari.getName());
+			newQari.setPic(qari.getPic());
+			qaries.add(newQari);
+		}
+		return qaries;
+	}
+	
+	@Transactional
+	public boolean addNewQari(QariEntity qari){
+		// TODO: unique properties
+		qariDao.addQari(qari);
+		return true;
+	}
+
+}

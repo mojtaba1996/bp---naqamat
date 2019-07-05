@@ -1,0 +1,23 @@
+package ir.asta.training.contacts.services.impl;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Context;
+
+import ir.asta.training.contacts.services.AuthService;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import requestEntities.SignupRequest;
+import requestEntities.SignupResponse;
+
+public class AuthServiceImpl implements AuthService {
+	
+	@Context HttpServletRequest request;
+	@Context HttpServletResponse response;
+
+	@Override
+	public ActionResult<SignupResponse> signup(SignupRequest signupRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

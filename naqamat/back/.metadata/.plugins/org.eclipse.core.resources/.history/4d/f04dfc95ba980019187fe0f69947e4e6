@@ -1,0 +1,13 @@
+package ir.asta.training.contacts.manager;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import ir.asta.training.contacts.dao.UserDao;
+
+@Named("authManager")
+public class AuthManager {
+	
+	@Inject UserDao dao;
+
+}

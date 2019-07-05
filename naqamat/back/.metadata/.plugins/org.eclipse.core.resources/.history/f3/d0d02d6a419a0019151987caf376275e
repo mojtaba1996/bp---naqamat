@@ -1,0 +1,48 @@
+package ir.asta.training.contacts.manager;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import java.security.SecureRandom;
+
+import ir.asta.training.contacts.dao.UserDao;
+import ir.asta.training.contacts.entities.UserrEntity;
+import ir.asta.wise.core.datamanagement.ActionResult;
+import requestEntities.LoginResponse;
+import requestEntities.SignupRequest;
+import requestEntities.SignupResponse;
+
+@Named("authManager")
+public class AuthManager {
+	
+	
+	
+	@Inject UserDao dao;
+	
+	@Transactional
+	public ActionResult<UserrEntity> signup(UserrEntity user){
+		ActionResult<UserrEntity> answer = new ActionResult<UserrEntity>();
+		if(!dao.isNewUsername(user.getUsername())){
+			answer.setSuccess(false);
+			answer.setMessage("نام کاربری تکراری است");
+			return answer;
+		}
+		if(user.getPassword().length()<8){
+			answer.setSuccess(false);
+			answer.setMessage("رمز عبور کوتاه است");
+			return answer;
+		}
+		if(dao.save(user)){
+			answer.setData(user);
+			answer.setMessage("با موفقیت عضو شد");
+			answer.setSuccess(true);
+		}
+		return answer;
+	}
+
+	public UserrEntity login(UserrEntity user){
+		return dao.exist(user);
+	}
+}

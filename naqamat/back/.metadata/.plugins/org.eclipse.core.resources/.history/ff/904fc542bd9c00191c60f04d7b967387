@@ -1,0 +1,27 @@
+package ir.asta.training.contacts.dao;
+
+import java.util.List;
+
+import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import ir.asta.training.contacts.entities.TuneEntity;
+
+@Named("tuneDao")
+public class TuneDao {
+	
+	@PersistenceContext private EntityManager em;
+	
+	public List<TuneEntity> getAllTunes(){
+		Query q = em.createQuery("SELECT t FROM TuneEntity t");
+		List<TuneEntity> result = q.getResultList();
+		return result;
+	}
+	
+	public void addTune(TuneEntity tune){
+		em.persist(tune);
+	}
+
+}

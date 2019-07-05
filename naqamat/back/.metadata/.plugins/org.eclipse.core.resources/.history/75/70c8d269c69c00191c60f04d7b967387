@@ -1,0 +1,45 @@
+package ir.asta.training.contacts.dao;
+
+import java.util.List;
+
+import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import ir.asta.training.contacts.entities.QariEntity;
+import ir.asta.training.contacts.entities.QiraatEntity;
+
+@Named("qiraatDao")
+public class QiraatDao {
+	
+	@PersistenceContext private EntityManager em;
+	
+	public List<QiraatEntity> getAllQiraats(){
+		Query q = em.createQuery("SELECT q FROM QiraatEntity q");
+		List<QiraatEntity> result = q.getResultList();
+		return result;
+	}
+	
+	public void addQiraat(QiraatEntity qiraat){
+		em.persist(qiraat);
+		em.flush();
+		QariEntity qari = em.find(QariEntity.class, qiraat.getQari().getId());
+		qari.addQiraats(qiraat);
+		em.merge(qari);
+	}
+	
+	public QiraatEntity getQiraatById(long qiraat_id){
+		QiraatEntity qiraat = em.find(QiraatEntity.class, qiraat_id);
+		System.out.println(qiraat.getId());
+		System.out.println(qiraat.getQari().getName());
+		return qiraat;
+	}
+	
+	public void deleteQiraatById(long qiraat_id){
+		return;/*
+		QiraatEntity qiraat = em.find(QiraatEntity.class, qiraat_id);
+		em.remove(qiraat);*/
+	}
+
+}

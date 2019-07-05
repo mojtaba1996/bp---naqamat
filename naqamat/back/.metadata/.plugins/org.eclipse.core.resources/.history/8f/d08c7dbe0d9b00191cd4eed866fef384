@@ -1,0 +1,49 @@
+package ir.asta.training.contacts.dao;
+
+import java.util.List;
+import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import ir.asta.training.contacts.entities.UserrEntity;
+
+@Named("userDao")
+public class UserDao {
+	
+	@PersistenceContext private EntityManager em;
+	
+	public boolean isNewUsername(String username){
+		Query q = em.createQuery("SELECT u from UserrEntity u WHERE u.username = :username");
+		q.setParameter("username", username);
+		List<UserrEntity> result = q.getResultList();
+		return result.size() == 0;
+	}
+
+	public boolean save(UserrEntity user) {
+		if (!em.contains(user)){
+			em.persist(user);
+			return true;
+		}
+		return false;
+	}	
+
+	public List<UserrEntity> getAllUsers(){
+		Query q = em.createQuery("SELECT u FROM UserrEntity u");
+		List<UserrEntity> result = q.getResultList();
+		return result;
+	}
+
+	public UserrEntity exist(UserrEntity user){
+		System.out.println(user.getUsername());
+		Query q = em.createQuery("SELECT u FROM UserrEntity u WHERE u.username = :username", UserrEntity.class);
+		q.setParameter("username", user.getUsername());
+		List<UserrEntity> results = q.getResultList();
+		if (results.size()==1){
+			return results.get(0);
+		}
+		else{
+			return null;
+		}
+	}
+}

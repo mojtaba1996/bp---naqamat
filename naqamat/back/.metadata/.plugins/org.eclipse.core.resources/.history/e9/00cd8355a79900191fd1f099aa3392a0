@@ -1,0 +1,36 @@
+package ir.asta.training.contacts.manager;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import ir.asta.training.contacts.dao.UserDao;
+import ir.asta.training.contacts.entities.UserrEntity;
+import ir.asta.wise.core.datamanagement.ActionResult;
+
+@Named("userManager")
+public class UserManager {
+	
+	@Inject UserDao dao;
+	
+	public ActionResult<Boolean> isNewUsername(String username){
+		ActionResult<Boolean> answer = new ActionResult<Boolean>();
+		if (dao.isNewUsername(username)){
+			System.out.println('1111111');
+			answer.setData(true);
+			answer.setSuccess(true);
+		}
+		else{
+			System.out.println('2222222');
+			answer.setData(false);
+			answer.setSuccess(false);
+		}
+		return answer;
+	}
+
+	public List<UserrEntity> showAllUsers(){
+		return dao.getAllUsers();
+	}
+	
+}

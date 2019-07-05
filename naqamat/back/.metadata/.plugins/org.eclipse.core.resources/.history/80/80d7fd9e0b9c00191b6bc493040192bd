@@ -1,0 +1,70 @@
+package ir.asta.training.contacts.entities;
+
+import java.util.List;
+import java.util.Set;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="WISE_TUNE")
+public class TuneEntity {
+	
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	Long id;
+	
+	@Basic
+	@Column(name="name")
+	String name;
+	
+	@Basic
+	@Column(name = "gamme")
+	String gamme;
+	
+	@OneToMany(mappedBy="tune")
+	Set<SampleEntity> samples;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGamme() {
+		return gamme;
+	}
+
+	public void setGamme(String gamme) {
+		this.gamme = gamme;
+	}
+
+	public Set<SampleEntity> getSamples() {
+		return samples;
+	}
+
+	public void addSamples(SampleEntity sample) {
+		this.samples.add(sample);
+	}
+
+}

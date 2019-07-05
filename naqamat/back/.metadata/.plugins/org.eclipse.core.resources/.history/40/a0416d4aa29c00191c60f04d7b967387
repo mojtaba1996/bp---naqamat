@@ -1,0 +1,21 @@
+package ir.asta.training.contacts.manager;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import ir.asta.training.contacts.dao.QariDao;
+import ir.asta.training.contacts.dao.QiraatDao;
+import ir.asta.training.contacts.dao.SampleDao;
+import ir.asta.training.contacts.dao.SurahDao;
+import ir.asta.training.contacts.dao.TuneDao;
+
+@Named("useLevelManager")
+public class UserLevelManager {
+	
+	@Inject SurahDao surahDao;
+	@Inject QariDao qariDao;
+	@Inject QiraatDao qiraatDao;
+	@Inject TuneDao tuneDao;
+	@Inject SampleDao sampleDao;
+
+}

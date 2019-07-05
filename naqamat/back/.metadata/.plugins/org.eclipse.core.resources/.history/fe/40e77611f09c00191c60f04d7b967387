@@ -1,0 +1,37 @@
+package ir.asta.training.contacts.dao;
+
+import java.util.List;
+
+import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import ir.asta.training.contacts.entities.QiraatEntity;
+import ir.asta.training.contacts.entities.SampleEntity;
+import ir.asta.training.contacts.entities.TuneEntity;
+
+@Named("sampleDao")
+public class SampleDao {
+	
+	@PersistenceContext private EntityManager em;
+
+	public List<SampleEntity> getAllSamples(){
+		Query q = em.createQuery("SELECT s from SampleEntity s");
+		List<SampleEntity> result = q.getResultList();
+		return result;
+	}
+	
+	public void addSample(SampleEntity sample){
+		em.persist(sample);
+		em.flush();
+		TuneEntity tune = sample.getTune();
+		tune.addSamples(sample);
+		em.merge(tune);
+	}
+	
+	public void deletSampleById(long sample_id){
+		SampleEntity sample = em.find(SampleEntity.class, sample_id);
+		em.remove(sample);
+	}
+}
